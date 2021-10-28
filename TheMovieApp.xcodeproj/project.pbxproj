@@ -58,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E073499272A305500EDD2B4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0EE3D991272A198000ABE5D5 /* CustomMovieCell.swift */,
+				0EE3D992272A198000ABE5D5 /* CustomMovieCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0E5C3F942728CA210037C36C = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +122,9 @@
 		0E5C3FBA2728CBAB0037C36C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0E073499272A305500EDD2B4 /* Cell */,
 				0E5C3FB62728CB490037C36C /* HomeView.swift */,
 				0E5C3FB72728CB490037C36C /* HomeView.xib */,
-				0EE3D991272A198000ABE5D5 /* CustomMovieCell.swift */,
-				0EE3D992272A198000ABE5D5 /* CustomMovieCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

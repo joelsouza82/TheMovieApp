@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class HomeView: UIViewController {
 
@@ -18,13 +19,27 @@ class HomeView: UIViewController {
     
     private var disposeBag = DisposeBag()
     private var movies = [Movie]()
+    private var filteredMovies = [Movie]()
+    
+    lazy var searchController: UISearchController = ({
+        let controller = UISearchController(searchResultsController: nil)
+        controller.hidesNavigationBarDuringPresentation = true
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.sizeToFit()
+        controller.searchBar.barStyle = .black
+        controller.searchBar.backgroundColor = .clear
+        controller.searchBar.placeholder = "Buscar filme"
+        
+        return controller
+    })()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "The Movie App"
         configuretableView()
         viewModel.bind(view: self, router: router)
         getData()
-        
+        manageSearchBarController()
     }
     
     func configuretableView()  {
@@ -51,18 +66,54 @@ class HomeView: UIViewController {
             self.tableView.reloadData()
         }
     }
-}
+    
+    private func manageSearchBarController() {
+        let searchBar = searchController.searchBar
+        searchController.delegate = self
+        tableView.tableHeaderView = searchBar
+        tableView.contentOffset = CGPoint(x: 0, y: searchBar.frame.size.height)
+        
+        searchBar.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .subscribe(onNext: { (result) in
+                self.filteredMovies = self.movies.filter({ movie in
+                    self.reloadTableView()
+                    return movie.title.contains(result)
+                })
+                
+            }).disposed(by: disposeBag)
 
+    }
+}
+extension HomeView: UISearchControllerDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        reloadTableView()
+    }
+}
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return self.filteredMovies.count
+        }else {
+            return self.movies.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CustomMovieCell.self)) as! CustomMovieCell
-        cell.imageMovie.imageFromServerURL(urlString: "\(Constants.URL.urlImages+self.movies[indexPath.row].image)", placeHolderImage: UIImage(named: "claquete")!)
-        cell.titleMovie.text = movies[indexPath.row].title
-        cell.descriptionMovie.text = movies[indexPath.row].sinopsis
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            cell.imageMovie.imageFromServerURL(urlString: "\(Constants.URL.urlImages+self.filteredMovies[indexPath.row].image)", placeHolderImage: UIImage(named: "claquete")!)
+            cell.titleMovie.text = filteredMovies[indexPath.row].title
+            cell.descriptionMovie.text = filteredMovies[indexPath.row].sinopsis
+        } else {
+            cell.imageMovie.imageFromServerURL(urlString: "\(Constants.URL.urlImages+self.movies[indexPath.row].image)", placeHolderImage: UIImage(named: "claquete")!)
+            cell.titleMovie.text = movies[indexPath.row].title
+            cell.descriptionMovie.text = movies[indexPath.row].sinopsis
+        }
         return cell
     }
     
