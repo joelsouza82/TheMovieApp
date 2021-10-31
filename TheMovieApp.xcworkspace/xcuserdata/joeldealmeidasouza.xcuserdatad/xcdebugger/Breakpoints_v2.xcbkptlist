@@ -160,15 +160,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "showMovieData(movie:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2EF715E0-5485-4B2D-B283-1990413D5D46"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
@@ -192,8 +192,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -264,7 +264,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "678339F7-9DA2-4802-9D2D-81073E846E2C"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
@@ -288,8 +288,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "getDataAndShowDetailMovie()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,8 +304,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "getDataAndShowDetailMovie()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -344,7 +344,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "04B52639-16C5-4D22-B6EB-54D3B48F8C5E"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
@@ -400,8 +400,56 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "getDataAndShowDetailMovie()"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F3AB303-CFC6-441A-8ABB-21B92A975321"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "getDetailMovies(movieID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5F3AB303-CFC6-441A-8ABB-21B92A975321 - 24412a999200f86c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.AnyObserver&lt;TheMovieApp.MovieDetail&gt;) -&gt; RxSwift.Disposable in TheMovieApp.ManagerConnections.getDetailMovies(movieID: Swift.String) -&gt; RxSwift.Observable&lt;TheMovieApp.MovieDetail&gt;"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joeldealmeidasouza/Projects/TheMovieApp/TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "1065">
+               </Location>
+               <Location
+                  uuid = "5F3AB303-CFC6-441A-8ABB-21B92A975321 - cd3410568688399a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;TheMovieApp.MovieDetail&gt;) -&gt; RxSwift.Disposable in TheMovieApp.ManagerConnections.getDetailMovies(movieID: Swift.String) -&gt; RxSwift.Observable&lt;TheMovieApp.MovieDetail&gt;"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joeldealmeidasouza/Projects/TheMovieApp/TheMovieApp/Home/NetworkManager/ManagerConnections.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
