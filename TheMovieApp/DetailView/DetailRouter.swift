@@ -1,22 +1,30 @@
 //
-//  HomeRouter.swift
+//  DetailRouter.swift
 //  TheMovieApp
 //
-//  Created by Joel de Almeida Souza on 26/10/21.
+//  Created by Joel de Almeida Souza on 30/10/21.
 //
 
 import Foundation
 import UIKit
 
-class HomeRouter {
+class DetailRouter {
+    
     var viewController: UIViewController {
         return createViewController()
     }
+    private var movieID: String?
     
+    init(movieID: String? = "" ) {
+        self.movieID = movieID
+    }
+    
+
     private var sourceView: UIViewController?
     
     private func createViewController() -> UIViewController {
-        let view = HomeView(nibName: "HomeView", bundle: Bundle.main)
+        let view = DetailView(nibName: "DetailView", bundle: Bundle.main)
+        view.movieID = self.movieID 
         return view
     }
     
@@ -25,8 +33,4 @@ class HomeRouter {
         self.sourceView = view
     }
     
-    func navigateToDetailView(movieID: String) {
-        let detailView = DetailRouter(movieID: movieID).viewController
-        sourceView?.navigationController?.pushViewController(detailView, animated: true)
-    }
 }

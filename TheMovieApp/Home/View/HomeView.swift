@@ -11,12 +11,11 @@ import RxCocoa
 
 class HomeView: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activity: UIActivityIndicatorView!
     
     private var router = HomeRouter()
     private var viewModel = HomeViewModel()
-    
     private var disposeBag = DisposeBag()
     private var movies = [Movie]()
     private var filteredMovies = [Movie]()
@@ -121,4 +120,11 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            viewModel.makeDetailView(movieID: String(self.filteredMovies[indexPath.row].movieID))
+        }else {
+            viewModel.makeDetailView(movieID: String(self.movies[indexPath.row].movieID))
+        }
+    }
 }
